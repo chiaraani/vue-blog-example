@@ -5,5 +5,5 @@
 
 <template>
   <TheHeader />
-  <RouterView />
+  <main><RouterView /></main>
 </template>
