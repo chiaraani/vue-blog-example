@@ -4,7 +4,7 @@
 
 <template>
   <header>
-    <RouterLink :to='{name: "home"}' class='site-name'>Vue Blog Example</RouterLink>
+    <RouterLink :to='{name: "home"}' class='site-name'><em><strong>Vue Blog Example</strong></em></RouterLink>
     <nav>
       <RouterLink :to='{name: "home"}'>Home</RouterLink>
       <RouterLink :to='{name: "about"}'>About</RouterLink>
@@ -17,9 +17,6 @@
     font-size: 20px;
     margin: 10px;
     text-decoration: none;
-    color: #36009d;
-    font-weight: bold;
-    font-style: italic;
   }
 
   nav {
