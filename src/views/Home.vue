@@ -1,6 +1,7 @@
 <script setup>
+	import Title from '@/components/layout/Title.vue'
 </script>
 
 <template>
-	<h1>Home</h1>
+	<Title>Home</Title>
 </template>
