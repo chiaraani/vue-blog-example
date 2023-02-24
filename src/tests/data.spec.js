@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 
-import { host, findAll } from '@/data.js'
+import { host, findAll } from '@/data'
+import { articles } from '@/tests/fixtures/articles'
 
 global.fetch = vi.fn()
 
@@ -12,9 +13,7 @@ const mockFetchRespone = (expectedPath, data) => {
 
 describe('findAll', () => {
 	it('returns promise resolved with data', async () => {
-		const data = [{ id: 1, property1: 'value1' }, { id: 2, property1: 'value2' }]
-		mockFetchRespone('records.json', data)
-
-		expect(await findAll('records')).toEqual(data)
+		mockFetchRespone('records.json', articles)
+		expect(await findAll('records')).toEqual(articles)
 	})
 })
