@@ -7,5 +7,10 @@ expect.extend({
 		return {
 			pass: expect(component.setup).toHaveBeenCalledWith(expect.objectContaining(props), expect.anything())
 		}
+	},
+	toHaveBeenMounted(component) {
+		return {
+			pass: expect(component.setup).toHaveBeenCalled()
+		}
 	}
 })
