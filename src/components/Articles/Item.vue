@@ -7,6 +7,6 @@ const { article } = defineProps(['article'])
 <template>
 	<article class='card'>
 		<h2>{{ article.title }}</h2>
-		<p><Summarize :text='article.body' :max-length='20' /></p>
+		<p><Summarize :text='article.body' :max-length='50' /></p>
 	</article>
 </template>

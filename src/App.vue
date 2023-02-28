@@ -7,7 +7,7 @@
   <TheHeader />
   <main>
     <RouterView v-slot="{ Component, route }">
-      <Transition name="fade-slide" mode="out-in">
+      <Transition name="fade-slide-left" mode="out-in">
         <div :key="route.name">  
           <component :is="Component" />
         </div>
@@ -17,17 +17,17 @@
 </template>
 
 <style>
-.fade-slide-enter-active,
-.fade-slide-leave-active {
+.fade-slide-left-enter-active,
+.fade-slide-left-leave-active {
   transition: all 0.5s ease;
 }
-.fade-slide-enter-from,
-.fade-slide-leave-to {
+.fade-slide-left-enter-from,
+.fade-slide-left-leave-to {
   opacity: 0;
 }
 
-.fade-slide-enter-from { transform:  translateY(-20%); }
-.fade-slide-leave-to { transform:  translateY(20%); }
+.fade-slide-left-enter-from { transform:  translateX(-100px); }
+.fade-slide-left-leave-to { transform:  translateX(-100px); }
 
 
 </style>
