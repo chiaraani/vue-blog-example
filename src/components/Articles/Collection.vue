@@ -1,11 +1,15 @@
 <script setup>
-import ArticleItem from './Item.vue'
+import ArticleItem from "./Item.vue";
 
-const { articles } = defineProps(['articles'])
+defineProps(["articles"]);
 </script>
 
 <template>
-	<section class='responsive'>
-		<ArticleItem v-for='article in articles' :hakey='article.id' :article='article' />
-	</section>
+  <section class="responsive">
+    <ArticleItem
+      v-for="article in articles"
+      :key="article.id"
+      :article="article"
+    />
+  </section>
 </template>

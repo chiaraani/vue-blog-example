@@ -11,4 +11,15 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
+  globals: {
+    global: "writable",
+  },
+  rules: {
+    "vue/multi-word-component-names": [
+      "off",
+      {
+        ignores: ["components/*/**", "views/**"],
+      },
+    ],
+  },
 };

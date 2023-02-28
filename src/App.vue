@@ -1,6 +1,6 @@
 <script setup>
-  import { RouterView } from "vue-router";
-  import TheHeader from '@/components/layout/TheHeader.vue'
+import { RouterView } from "vue-router";
+import TheHeader from "@/components/layout/TheHeader.vue";
 </script>
 
 <template>
@@ -8,7 +8,7 @@
   <main>
     <RouterView v-slot="{ Component, route }">
       <Transition name="fade-slide-left" mode="out-in">
-        <div :key="route.name">  
+        <div :key="route.name">
           <component :is="Component" />
         </div>
       </Transition>
@@ -26,8 +26,10 @@
   opacity: 0;
 }
 
-.fade-slide-left-enter-from { transform:  translateX(-100px); }
-.fade-slide-left-leave-to { transform:  translateX(-100px); }
-
-
+.fade-slide-left-enter-from {
+  transform: translateX(-100px);
+}
+.fade-slide-left-leave-to {
+  transform: translateX(-100px);
+}
 </style>
