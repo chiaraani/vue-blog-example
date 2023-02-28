@@ -1,10 +1,11 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { mount, flushPromises } from "@vue/test-utils";
 
 import App from "@/App.vue";
 import router from "@/router/index";
 import TheHeader from "@/components/layout/TheHeader.vue";
 import { spyComponent } from "@/tests/test-support/expectComponentToHaveBeenMounted";
+vi.mock('@/components/Articles/Index.vue', async () => ({ default: { setup: vi.fn() } }))
 
 describe("App", () => {
   spyComponent(TheHeader);
