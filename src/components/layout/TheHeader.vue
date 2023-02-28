@@ -17,6 +17,7 @@
     font-size: 20px;
     margin: 10px;
     text-decoration: none;
+    line-height: 200%;
   }
 
   nav {

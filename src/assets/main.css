@@ -1,5 +1,6 @@
 body {
   text-align: center;
+  margin: 0 5%;
 }
 
 a {
@@ -8,4 +9,10 @@ a {
 
 a:hover {
   color: #5800ff;
+}
+
+.card {
+  box-shadow: 0px 0px 5px #0005;
+  padding: 10px;
+  margin: 10px;
 }
