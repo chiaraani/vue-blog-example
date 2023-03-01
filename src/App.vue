@@ -8,7 +8,7 @@ import TheHeader from "@/components/layout/TheHeader.vue";
   <main>
     <RouterView v-slot="{ Component, route }">
       <Transition name="fade-slide-left" mode="out-in">
-        <div :key="route.name">
+        <div :key="route.path">
           <component :is="Component" />
         </div>
       </Transition>

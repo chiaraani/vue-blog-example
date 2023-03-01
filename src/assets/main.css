@@ -31,3 +31,7 @@ a:hover {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.big-font {
+  font-size: 130%;
+}
