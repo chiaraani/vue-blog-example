@@ -3,7 +3,7 @@
     "id": 1,
     "slug": "1_how-to-emphasise-in-html",
     "title": "How to emphasise in HTML",
-    "body": "Inside `em` HTML element.\nYou can write it in this way:\n```HTML\n<em>This is emphasis</em>\n```\n*This is emphasis"
+    "body": "Inside `em` HTML element.\nYou can write it in this way:\n```HTML\n<em>This is emphasis</em>\n```\n**Example:**\n\n*This is emphasis*"
   },
   {
     "id": 2,
