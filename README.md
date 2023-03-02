@@ -1,6 +1,6 @@
 # Vue Blog Example
 
-Visit on https://vue-blog-example-chiaraani.netlify.app/
+Visit on https://vue-blog-example-chiaraani.onrender.com
 
 [vue blog example.webm](https://user-images.githubusercontent.com/13300465/222526860-d369c87e-1de9-465e-a8e6-4b0e560a3d88.webm)
 
