@@ -3,20 +3,20 @@ import { mount } from "@vue/test-utils";
 
 import ArticleItem from "@/components/Articles/Item.vue";
 import { article } from "@/tests/fixtures/articles";
-vi.mock("@/components/user-interface/summarize", async () => ({ 
-  default: vi.fn( () => '*Emphasis*' )
-}) )
+vi.mock("@/components/user-interface/summarize", async () => ({
+  default: vi.fn(() => "*Emphasis*"),
+}));
 import summarize from "@/components/user-interface/summarize";
-import { spyComponent } from '@/tests/test-support/expectComponentToHaveBeenMounted'
-import { RouterLink } from 'vue-router'
-import createTestRouter from '@/tests/test-support/createTestRouter'
+import { spyComponent } from "@/tests/test-support/expectComponentToHaveBeenMounted";
+import { RouterLink } from "vue-router";
+import createTestRouter from "@/tests/test-support/createTestRouter";
 
 describe("ArticleItem", async () => {
-  spyComponent(RouterLink)
-  const router = await createTestRouter()
-  const wrapper = mount(ArticleItem, { 
+  spyComponent(RouterLink);
+  const router = await createTestRouter();
+  const wrapper = mount(ArticleItem, {
     global: { plugins: [router] },
-    props: { article }
+    props: { article },
   });
 
   it("renders title", () => {
@@ -24,14 +24,18 @@ describe("ArticleItem", async () => {
   });
 
   it("renders summary", () => {
-    expect(summarize).toHaveBeenCalledWith(expect.objectContaining({ text: article.body }))
+    expect(summarize).toHaveBeenCalledWith(
+      expect.objectContaining({ text: article.body })
+    );
   });
 
-  it('renders summary in HTML', () => {
-    expect(wrapper.html()).toContain('<em>Emphasis</em>')
-  })
+  it("renders summary in HTML", () => {
+    expect(wrapper.html()).toContain("<em>Emphasis</em>");
+  });
 
-  it('is linked to article route', () => {
-    expect(RouterLink).toHaveBeenMountedWith({ to: { name: 'article', params: { slug: article.slug } } })
-  })
+  it("is linked to article route", () => {
+    expect(RouterLink).toHaveBeenMountedWith({
+      to: { name: "article", params: { slug: article.slug } },
+    });
+  });
 });

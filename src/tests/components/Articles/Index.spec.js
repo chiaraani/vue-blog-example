@@ -8,11 +8,11 @@ vi.mock("@/data", async () => ({
 }));
 import { spyComponent } from "@/tests/test-support/expectComponentToHaveBeenMounted";
 import ArticlesCollection from "@/components/Articles/Collection.vue";
-import createTestRouter from '@/tests/test-support/createTestRouter'
+import createTestRouter from "@/tests/test-support/createTestRouter";
 
 describe("ArticlesIndex", async () => {
   spyComponent(ArticlesCollection);
-  const router = await createTestRouter()
+  const router = await createTestRouter();
   mount(ArticlesIndex, { global: { plugins: [router] } });
 
   it("finds all articles and mounts collection of them", () =>

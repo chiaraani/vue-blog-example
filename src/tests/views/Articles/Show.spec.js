@@ -18,9 +18,9 @@ describe("ArticleView", async () => {
   });
 
   it("renders title of article", () => {
-    expect(wrapper.findComponent(Title).text()).toEqual(article.title)
+    expect(wrapper.findComponent(Title).text()).toEqual(article.title);
   });
-  
+
   it("renders body of article", () =>
     expect(wrapper.html()).toContain(
       "<p>Inside <code>em</code> HTML element.</p>"
