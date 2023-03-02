@@ -1,13 +1,14 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { mount } from "@vue/test-utils";
 
 import ArticleItem from "@/components/Articles/Item.vue";
 import { article } from "@/tests/fixtures/articles";
-import { spyComponent } from "@/tests/test-support/expectComponentToHaveBeenMounted";
-import Summarize from "@/components/user-interface/Summarize.vue";
+vi.mock("@/components/user-interface/summarize", async () => ({ 
+  default: vi.fn( () => '*Emphasis*' )
+}) )
+import summarize from "@/components/user-interface/summarize";
 
 describe("ArticleItem", () => {
-  spyComponent(Summarize);
   const wrapper = mount(ArticleItem, { props: { article } });
 
   it("renders title", () => {
@@ -15,6 +16,10 @@ describe("ArticleItem", () => {
   });
 
   it("renders summary", () => {
-    expect(Summarize).toHaveBeenMountedWith({ text: article.body });
+    expect(summarize).toHaveBeenCalledWith(expect.objectContaining({ text: article.body }))
   });
+
+  it('renders summary in HTML', () => {
+    expect(wrapper.html()).toContain('<em>Emphasis</em>')
+  })
 });
