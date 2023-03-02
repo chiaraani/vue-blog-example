@@ -19,9 +19,15 @@
 
 <template>
 	<Loading :data='article'>
-		<article class="card">
+		<article class="card article">
 			<Title>{{ article.title }}</Title>
 			<div v-html='bodyHTML'></div>
 		</article>
 	</Loading>
 </template>
+
+<style>
+	.article {
+		text-align: left;
+	}
+</style>
