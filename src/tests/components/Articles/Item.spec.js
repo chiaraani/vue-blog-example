@@ -7,9 +7,17 @@ vi.mock("@/components/user-interface/summarize", async () => ({
   default: vi.fn( () => '*Emphasis*' )
 }) )
 import summarize from "@/components/user-interface/summarize";
+import { spyComponent } from '@/tests/test-support/expectComponentToHaveBeenMounted'
+import { RouterLink } from 'vue-router'
+import createTestRouter from '@/tests/test-support/createTestRouter'
 
-describe("ArticleItem", () => {
-  const wrapper = mount(ArticleItem, { props: { article } });
+describe("ArticleItem", async () => {
+  spyComponent(RouterLink)
+  const router = await createTestRouter()
+  const wrapper = mount(ArticleItem, { 
+    global: { plugins: [router] },
+    props: { article }
+  });
 
   it("renders title", () => {
     expect(wrapper.find("h2").text()).toEqual(article.title);
@@ -21,5 +29,9 @@ describe("ArticleItem", () => {
 
   it('renders summary in HTML', () => {
     expect(wrapper.html()).toContain('<em>Emphasis</em>')
+  })
+
+  it('is linked to article route', () => {
+    expect(RouterLink).toHaveBeenMountedWith({ to: { name: 'article', params: { slug: article.slug } } })
   })
 });
