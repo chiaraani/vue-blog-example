@@ -1,4 +1,4 @@
-export const host = "http://localhost:5173/";
+export const host = import.meta.env.BASE_URL;
 
 const fetchJSONFile = async (fileName) => {
   const data = await fetch(host + fileName + ".json");
