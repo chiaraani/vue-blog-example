@@ -2,6 +2,8 @@
 
 Visit on https://vue-blog-example-chiaraani.netlify.app/
 
+[vue blog example.webm](https://user-images.githubusercontent.com/13300465/222526860-d369c87e-1de9-465e-a8e6-4b0e560a3d88.webm)
+
 This a Vue Example developed by [Chiara Nuñez](https://www.linkedin.com/in/chiara-nunez/).
 
 ## Project Setup
