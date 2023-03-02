@@ -10,8 +10,11 @@ describe("ArticleItem", () => {
   spyComponent(Summarize);
   const wrapper = mount(ArticleItem, { props: { article } });
 
-  it("renders title", () =>
-    expect(wrapper.find("h2").text()).toEqual(article.title));
-  it("renders summary", () =>
-    expect(Summarize).toHaveBeenMountedWith({ text: article.body }));
+  it("renders title", () => {
+    expect(wrapper.find("h2").text()).toEqual(article.title);
+  });
+
+  it("renders summary", () => {
+    expect(Summarize).toHaveBeenMountedWith({ text: article.body });
+  });
 });

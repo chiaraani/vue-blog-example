@@ -11,7 +11,6 @@ const mockFetchRespone = (expectedPath, data) => {
   });
 };
 
-
 mockFetchRespone("articles.json", articles);
 
 describe("findAll", () => {
@@ -20,12 +19,16 @@ describe("findAll", () => {
   });
 });
 
-describe('find', () => {
-  it('returns promise resolved with article found by slug', async () => {
-    expect(await findRecord('articles', article.slug)).toEqual(article)
-  })
+describe("find", () => {
+  it("returns promise resolved with article found by slug", async () => {
+    expect(await findRecord("articles", article.slug)).toEqual(article);
+  });
 
-  it('throws 404 error if article is not found', async () => {
-    expect(await findRecord('articles', 'Not a an ID').catch(error => error.message === '404') ).toBe(true)
-  })
-})
+  it("throws 404 error if article is not found", async () => {
+    expect(
+      await findRecord("articles", "Not a an ID").catch(
+        (error) => error.message === "404"
+      )
+    ).toBe(true);
+  });
+});
