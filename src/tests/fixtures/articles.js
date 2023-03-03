@@ -14,3 +14,8 @@ export const articles = [
 ];
 
 export const article = articles[0];
+
+export const newArticle = {
+  title: "How to show an alert modal in JavaScript?",
+  body: "With browser built-in function `alert`.",
+}

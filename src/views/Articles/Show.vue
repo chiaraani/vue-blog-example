@@ -11,8 +11,8 @@ const article = ref();
 
 onMounted(() => {
   findRecord("articles", route.params.slug).then(
-    (data) => (article.value = data)
-  );
+    data => (article.value = data)
+  ).catch(error => article.value = error)
 });
 
 const bodyHTML = computed(() => marked(article.value.body));
