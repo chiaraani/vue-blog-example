@@ -1,21 +1,30 @@
 <script setup>
-	import { computed } from 'vue'
+	import { ref, computed } from 'vue'
+
+	import SimpleInput from './Input.vue'
 
 	const props = defineProps(['name', 'type', 'size'])
 
 	const label = computed(() => {
 		return props.name.charAt(0).toUpperCase() + props.name.slice(1)
 	})
+
+	const valid = ref()
+	const errorMessage = ref()
+	function validate(event) {
+		valid.value = event.target.validity.valid
+		errorMessage.value =  event.target.validationMessage
+	}
 </script>
 
 <template>
-	<div :class="['field', size]">	
+	<div :class="{field: true, [size]: true, invalid: valid === false, valid: valid }">	
 		<div>
 			<label :for="name">{{ label }}</label>
 			<span class="required-help">*</span>
 		</div>	
-		<textarea v-if="type === 'textarea'" :name="name" required></textarea>
-		<input v-else type="text" :name='name' required />
+		<SimpleInput :type='type' :name="name" required @focusout='validate' @input='validate' />
+		<p v-if='errorMessage'><strong>{{ errorMessage }}</strong></p>
 	</div>
 </template>
 
@@ -33,11 +42,6 @@
 		margin: 1px;
 		display: block;
 		font: inherit;
-	}
-
-	::placeholder {
-		font-weight: normal;
-		color: #0005;
 	}
 
 	input:focus, textarea:focus {
@@ -69,5 +73,14 @@
 
 	.required-help {
 		color: #36009d;
+	}
+
+	.invalid label, .invalid input, .invalid textarea, .invalid {
+		color: red;
+		border-color: red;
+	}
+
+	.valid input, .valid textarea {
+		border-color: green;
 	}
 </style>
