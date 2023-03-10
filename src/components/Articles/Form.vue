@@ -6,7 +6,7 @@
 	defineEmits(['save'])
 
 	const fields = [
-		{name: 'title', type: 'text', size: 'large'},
+		{name: 'title', type: 'text', class: 'large'},
 		{name: 'body', type: 'textarea'}
 	]
 </script>
