@@ -3,7 +3,7 @@
 	import SimpleForm from '@/components/SimpleForm/Form.vue'
 
 	defineProps(['article'])
-	const emit = defineEmits(['save'])
+	defineEmits(['save'])
 
 	const fields = [
 		{name: 'title', type: 'text', size: 'large'},
@@ -13,6 +13,6 @@
 
 <template>
 	<article class="card">
-		<SimpleForm :data="article" :fields="fields" submit-name="Save" @submit="emit('save')" />
+		<SimpleForm :data="article" :fields="fields" submit-name="Save" @submit="$emit('save')" />
 	</article>
 </template>

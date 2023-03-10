@@ -20,7 +20,7 @@ describe('SimpleInput', () => {
 	}
 
 	testInput({
-		name:'title', 
+		name: 'title', 
 		type: 'text', 
 		selector: 'input[type=text]',
 		value: 'This is a title'

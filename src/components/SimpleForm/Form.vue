@@ -1,5 +1,5 @@
 <template>
-	<form @submit.prevent="emit('submit')">
+	<form @submit.prevent="$emit('submit')">
 		<SimpleField v-for="field in fields" v-bind="field" :data="data"/>
 		<button type="submit">{{ submitName }}</button>
 		<RouterLink :to="{ name: 'home' }" class="red button">Cancel</RouterLink>
@@ -10,5 +10,5 @@
 	import SimpleField from '@/components/SimpleForm/Field.vue'
 
 	defineProps(['data', 'fields', 'submitName'])
-	const emit = defineEmits(['submit'])
+	defineEmits(['submit'])
 </script>
