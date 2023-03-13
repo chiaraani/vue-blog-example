@@ -1,6 +1,6 @@
 <template>
 	<div>					
-		<label :for="name">{{ label }}</label>
+		<label :for="name + '_field'">{{ label }}</label>
 		<span class="required-help">*</span>
 	</div>
 </template>

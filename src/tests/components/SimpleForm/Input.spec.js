@@ -10,7 +10,9 @@ describe('SimpleInput', () => {
 			const wrapper = render(SimpleInput, { 
 				props: { type, name, data }
 			})
-			const input = wrapper.getByDisplayValue('', { selector: `${selector}[name=${name}]` })
+			const input = wrapper.getByDisplayValue('', { 
+				selector: `${selector}#${name}_field[name=${name}]` 
+			})
 
 			it('is bound to data', async () => {
 				await fireEvent.update(input, value)

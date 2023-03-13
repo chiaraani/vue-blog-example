@@ -9,7 +9,7 @@ describe('SimpleLabel', () => {
 	})
 
 	it('renders capitalized name', () => {
-		wrapper.getByText('Title', { selector: 'label' })
+		wrapper.getByText('Title', { selector: 'label[for=title_field]' })
 	})
 
 	it('renders asterisk', () => {

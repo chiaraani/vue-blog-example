@@ -1,7 +1,7 @@
 <template>
 	<div class="field">
 		<SimpleLabel :name="name" />
-		<SimpleInput :type="type" :name="name" :data="data" :id="name"/>
+		<SimpleInput :type="type" :name="name" :data="data" :id="name + '_field'"/>
 	</div>
 </template>
 

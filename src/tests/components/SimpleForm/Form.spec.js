@@ -6,12 +6,18 @@ import createTestRouter from '@/tests/test-support/createTestRouter'
 
 describe('SimpleForm', async () => {
 	const router = await createTestRouter()
+	const previousTitle = 'This was my title'
 	const wrapper = render(SimpleForm, {
 		global: { plugins: [router] },
 		props: { 
-			fields: [{name: 'title', type: 'text'}],
+			fields: [{ name: 'title', type: 'text' }],
+			default: { title: previousTitle },
 			submitButton: 'Save'
 		}
+	})
+
+	it('is filled in with default', () => {
+		wrapper.getByDisplayValue(previousTitle, { selector: '#title_field' })
 	})
 
 	it('emits entered data', async () => {

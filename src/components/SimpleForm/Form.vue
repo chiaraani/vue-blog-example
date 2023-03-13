@@ -10,8 +10,8 @@
 	import { reactive } from 'vue'
 	import SimpleField from '@/components/SimpleForm/Field.vue'
 
-	defineProps(['fields', 'submitButton'])
+	const props = defineProps(['fields', 'default', 'submitButton'])
 	defineEmits(['submit'])
 
-	const data = reactive({})
+	const data = reactive({ ...props.default })
 </script>
