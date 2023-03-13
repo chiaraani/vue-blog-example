@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 
-import summarize from "@/components/user-interface/summarize";
+import summarize from "@/helpers/summarize";
 
 describe("summarize", () => {
   it("returns text straight away if it is shorter than maximum length", () => {

@@ -3,7 +3,7 @@ import { computed } from "vue";
 import { RouterLink } from "vue-router";
 import { marked } from "marked";
 
-import summarize from "@/components/user-interface/summarize";
+import summarize from "@/helpers/summarize";
 
 const props = defineProps(["article"]);
 

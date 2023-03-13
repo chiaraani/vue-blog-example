@@ -20,9 +20,11 @@ export const routes = [
   },
 ];
 
+/* c8 ignore start */
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
 
 export default router;
+/* c8 ignore stop */

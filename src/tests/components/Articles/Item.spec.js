@@ -3,10 +3,10 @@ import { mount } from "@vue/test-utils";
 
 import ArticleItem from "@/components/Articles/Item.vue";
 import { article } from "@/tests/fixtures/articles";
-vi.mock("@/components/user-interface/summarize", async () => ({
+vi.mock("@/helpers/summarize", async () => ({
   default: vi.fn(() => "*Emphasis*"),
 }));
-import summarize from "@/components/user-interface/summarize";
+import summarize from "@/helpers/summarize";
 import { spyComponent } from "@/tests/test-support/expectComponentToHaveBeenMounted";
 import { RouterLink } from "vue-router";
 import createTestRouter from "@/tests/test-support/createTestRouter";
