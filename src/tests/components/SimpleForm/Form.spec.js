@@ -3,12 +3,8 @@ import { render, fireEvent } from '@testing-library/vue'
 
 import SimpleForm from '@/components/SimpleForm/Form.vue'
 import createTestRouter from '@/tests/test-support/createTestRouter'
-import { spyComponent } from '@/tests/test-support/expectComponentToHaveBeenMounted'
-import { RouterLink } from 'vue-router'
 
 describe('SimpleForm', async () => {
-	spyComponent(RouterLink)
-
 	const router = await createTestRouter()
 	const wrapper = render(SimpleForm, {
 		global: { plugins: [router] },
