@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { render, fireEvent } from '@testing-library/vue'
 
 import SimpleInput from '@/components/SimpleForm/Input.vue'
 
@@ -7,15 +7,17 @@ describe('SimpleInput', () => {
 	function testInput({name, type, selector, value}) {
 		describe(`when ${name}`, () => {
 			const data = {}
-			const wrapper = mount(SimpleInput, { 
+			const wrapper = render(SimpleInput, { 
 				props: { type, name, data }
 			})
-			const input = wrapper.find(`${selector}[name=${name}]`)
+			const input = wrapper.getByDisplayValue('', { selector: `${selector}[name=${name}]` })
 
 			it('is bound to data', async () => {
-				await input.setValue(value)
+				await fireEvent.update(input, value)
 				expect(data[name]).toEqual(value)
 			})
+
+			wrapper.unmount()
 		})
 	}
 

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { mount } from "@vue/test-utils";
+import { render } from "@testing-library/vue";
 
 import ArticlesIndex from "@/components/Articles/Index.vue";
 import { articles } from "@/tests/fixtures/articles";
@@ -13,8 +13,9 @@ import createTestRouter from "@/tests/test-support/createTestRouter";
 describe("ArticlesIndex", async () => {
   spyComponent(ArticlesCollection);
   const router = await createTestRouter();
-  mount(ArticlesIndex, { global: { plugins: [router] } });
+  render(ArticlesIndex, { global: { plugins: [router] } });
 
-  it("finds all articles and mounts collection of them", () =>
-    expect(ArticlesCollection).toHaveBeenMountedWith({ articles }));
+  it("finds all articles and mounts collection of them", () => {
+    expect(ArticlesCollection).toHaveBeenMountedWith({ articles })
+  });
 });

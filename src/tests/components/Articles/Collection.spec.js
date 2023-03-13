@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { mount } from "@vue/test-utils";
+import { render } from "@testing-library/vue";
 
 import ArticlesCollection from "@/components/Articles/Collection.vue";
 import { articles } from "@/tests/fixtures/articles";
@@ -10,7 +10,7 @@ import createTestRouter from "@/tests/test-support/createTestRouter";
 describe("ArticlesCollection", async () => {
   spyComponent(ArticleItem);
   const router = await createTestRouter();
-  mount(ArticlesCollection, {
+  render(ArticlesCollection, {
     global: { plugins: [router] },
     props: { articles },
   });
