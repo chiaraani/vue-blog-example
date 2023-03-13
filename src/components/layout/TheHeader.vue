@@ -4,9 +4,9 @@ import { RouterLink } from "vue-router";
 
 <template>
   <header>
-    <RouterLink :to="{ name: 'home' }" class="site-name"
-      ><em><strong>Vue Blog Example</strong></em></RouterLink
-    >
+    <RouterLink :to="{ name: 'home' }" class="site-name">
+      <em><strong>Vue Blog Example</strong></em>
+    </RouterLink>
     <nav>
       <RouterLink :to="{ name: 'home' }">Home</RouterLink>
       <RouterLink :to="{ name: 'about' }">About</RouterLink>
