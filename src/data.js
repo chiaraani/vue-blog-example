@@ -27,16 +27,18 @@ export const findRecord = async (resource, slug) => {
 
 export const createRecord = async (resource, data) => {
   let id
-  if (memory[resource].constructor === Array) {
-    const lastId = memory[resource][memory[resource].length - 1].id
+  const all = await findAll(resource)
+  if (all.length > 0) {
+    const lastId = all[all.length - 1].id
     id = lastId + 1
   } else {
-    memory[resource] = []
     id = 1
   }
 
   const slug = `${id}_${data.title.slugify()}`
   
   const newRecord = {id, slug, ...data}
-  memory[resource].push(newRecord)
+  all.push(newRecord)
+
+  return newRecord
 }

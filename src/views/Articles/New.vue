@@ -1,18 +1,20 @@
 <script setup>
-	import { reactive, } from 'vue'
+	import { reactive } from 'vue'
+	import { useRouter } from 'vue-router'
 
 	import Title from '@/components/layout/Title.vue'
 	import ArticleForm from '@/components/Articles/Form.vue'
+	import { createRecord } from '@/data'
 
-	const article = reactive({ 
-		title: '',
-		body: ''
-	})
+	const router = useRouter()
 
-	const saveHandler = () => console.log('Submitted!', article)
+	const saveHandler = async data => {
+		const article = await createRecord('articles', data)
+		router.push({ name: 'article', params: { slug: article.slug } })
+	}
 </script>
 
 <template>
 	<Title>New article</Title>
-	<ArticleForm :article='article' @save="saveHandler" />	
+	<ArticleForm @save="data => saveHandler(data)" />	
 </template>

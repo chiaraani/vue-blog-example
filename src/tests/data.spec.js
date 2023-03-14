@@ -1,17 +1,10 @@
 import { describe, it, expect, vi } from "vitest";
 
-import { host, findAll, findRecord, createRecord } from "@/data";
-import { articles, article, newArticle } from "@/tests/fixtures/articles";
+import { findAll, findRecord, createRecord } from "@/data";
+import { articles, article, newArticle, expectedNewArticle } from "@/tests/fixtures/articles";
+import { mockFetchResponse } from '@/tests/test-support'
 
-global.fetch = vi.fn();
-
-const mockFetchRespone = (expectedPath, data) => {
-  fetch.mockImplementation(async (actualPath) => {
-    if (actualPath == host + expectedPath) return { json: () => data };
-  });
-};
-
-mockFetchRespone("articles.json", articles);
+mockFetchResponse("articles.json", articles);
 
 describe("findAll", () => {
   it("returns promise resolved with all articles", async () => {
@@ -33,11 +26,14 @@ describe("findRecord", () => {
 });
 
 describe('createRecord', () => {
+  it('returns new article with generated slug and id', async () => {
+    expect(await createRecord('articles', newArticle)).toEqual(expectedNewArticle)
+  })
+
   it('adds article to list of all articles', async () => {
-    await createRecord('articles', newArticle)
     expect(
-      await findAll('articles')
+      (await findAll('articles'))
       .find(a => a.title === newArticle.title)
-    ).toEqual(expect.objectContaining(newArticle))
+    ).toEqual(expectedNewArticle)
   })
 })
