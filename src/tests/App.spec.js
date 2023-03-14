@@ -2,9 +2,8 @@ import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 
 import App from "@/App.vue";
-import createTestRouter from "@/tests/test-support/createTestRouter";
+import { createTestRouter, spyComponent } from "@/tests/test-support";
 import TheHeader from "@/components/layout/TheHeader.vue";
-import { spyComponent } from "@/tests/test-support/expectComponentToHaveBeenMounted";
 
 describe("App", async () => {
   spyComponent(TheHeader);

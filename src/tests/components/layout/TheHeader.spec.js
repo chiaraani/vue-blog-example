@@ -2,9 +2,8 @@ import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/vue";
 
 import TheHeader from "@/components/layout/TheHeader.vue";
-import createTestRouter from "@/tests/test-support/createTestRouter";
+import { createTestRouter, spyComponent } from "@/tests/test-support";
 import { RouterLink } from "vue-router";
-import { spyComponent } from "@/tests/test-support/expectComponentToHaveBeenMounted";
 
 describe("TheHeader", async () => {
   const links = [{ name: "home" }, { name: "about" }];

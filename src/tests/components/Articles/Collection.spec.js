@@ -3,9 +3,8 @@ import { render } from "@testing-library/vue";
 
 import ArticlesCollection from "@/components/Articles/Collection.vue";
 import { articles } from "@/tests/fixtures/articles";
-import { spyComponent } from "@/tests/test-support/expectComponentToHaveBeenMounted";
+import { createTestRouter, spyComponent } from "@/tests/test-support";
 import ArticleItem from "@/components/Articles/Item.vue";
-import createTestRouter from "@/tests/test-support/createTestRouter";
 
 describe("ArticlesCollection", async () => {
   spyComponent(ArticleItem);

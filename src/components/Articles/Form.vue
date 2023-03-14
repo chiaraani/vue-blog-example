@@ -13,6 +13,6 @@
 
 <template>
 	<article class="card">
-		<SimpleForm :data="article" :fields="fields" submit-button="Save" @submit="$emit('save')" />
+		<SimpleForm :default="article" :fields="fields" submit-button="Save" @submit="data => $emit('save', data)" />
 	</article>
 </template>

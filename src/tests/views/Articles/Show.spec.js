@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { mount } from "@vue/test-utils";
 
 import ArticleView from "@/views/Articles/Show.vue";
-import createTestRouter from '@/tests/test-support/createTestRouter'
+import { createTestRouter } from '@/tests/test-support'
 import { article } from "@/tests/fixtures/articles";
 import Title from "@/components/layout/Title.vue";
 vi.mock("@/data", async () => ({

@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest'
-import { render, fireEvent } from '@testing-library/vue'
+import { render } from '@testing-library/vue'
 
 import SimpleForm from '@/components/SimpleForm/Form.vue'
-import createTestRouter from '@/tests/test-support/createTestRouter'
+import { createTestRouter, fillIn, clickOn } from '@/tests/test-support'
 
 describe('SimpleForm', async () => {
 	const router = await createTestRouter()
@@ -23,11 +23,9 @@ describe('SimpleForm', async () => {
 	it('emits entered data', async () => {
 		// Fill in "title" with "My article"
 		const value = 'My article'
-		const titleInput = wrapper.getByLabelText('Title')
-		await fireEvent.update(titleInput, value)
+		await fillIn(wrapper, 'Title', value)
 		// Submit form
-		const submitButton = wrapper.getByText('Save')
-		await fireEvent.click(submitButton)
+		await clickOn(wrapper, 'Save')
 		// Expect event "submit" to have been emitted with entered data
 		expect(wrapper.emitted().submit).toEqual([[{ title: value }]])
 	})

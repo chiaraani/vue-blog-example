@@ -6,9 +6,8 @@ import { articles } from "@/tests/fixtures/articles";
 vi.mock("@/data", async () => ({
   findAll: vi.fn(async (resource) => resource == "articles" && articles),
 }));
-import { spyComponent } from "@/tests/test-support/expectComponentToHaveBeenMounted";
+import { createTestRouter, spyComponent } from "@/tests/test-support";
 import ArticlesCollection from "@/components/Articles/Collection.vue";
-import createTestRouter from "@/tests/test-support/createTestRouter";
 
 describe("ArticlesIndex", async () => {
   spyComponent(ArticlesCollection);

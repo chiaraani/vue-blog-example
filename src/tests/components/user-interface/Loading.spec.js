@@ -3,7 +3,7 @@ import { mount } from "@vue/test-utils";
 
 import Loading from "@/components/user-interface/Loading.vue";
 import NotFound from '@/views/NotFound.vue'
-import createTestRouter from '@/tests/test-support/createTestRouter'
+import { createTestRouter } from '@/tests/test-support'
 
 describe("Loading", async () => {
   const wrapper = mount(Loading, {

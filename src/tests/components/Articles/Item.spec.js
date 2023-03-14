@@ -7,9 +7,8 @@ vi.mock("@/helpers/summarize", async () => ({
   default: vi.fn(() => "*Emphasis*"),
 }));
 import summarize from "@/helpers/summarize";
-import { spyComponent } from "@/tests/test-support/expectComponentToHaveBeenMounted";
+import { createTestRouter, spyComponent } from "@/tests/test-support";
 import { RouterLink } from "vue-router";
-import createTestRouter from "@/tests/test-support/createTestRouter";
 
 describe("ArticleItem", async () => {
   spyComponent(RouterLink);
