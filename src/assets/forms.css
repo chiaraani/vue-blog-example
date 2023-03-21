@@ -25,7 +25,7 @@ button:hover, .button:hover {
 	background-color: #ff3e3e;
 }
 
-	label {
+label {
 	color: grey;
 	font-weight: bold;
 	font-family: sans-serif;
@@ -70,13 +70,4 @@ textarea {
 
 .required-help {
 	color: #36009d;
-}
-
-.invalid label, .invalid input, .invalid textarea, .invalid {
-	color: red;
-	border-color: red;
-}
-
-.valid input, .valid textarea {
-	border-color: green;
 }
