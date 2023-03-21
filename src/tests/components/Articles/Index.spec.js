@@ -12,9 +12,15 @@ import ArticlesCollection from "@/components/Articles/Collection.vue";
 describe("ArticlesIndex", async () => {
   spyComponent(ArticlesCollection);
   const router = await createTestRouter();
-  render(ArticlesIndex, { global: { plugins: [router] } });
+  const wrapper = render(ArticlesIndex, { global: { plugins: [router] } });
 
   it("finds all articles and mounts collection of them", () => {
     expect(ArticlesCollection).toHaveBeenMountedWith({ articles });
   });
+
+  it('renders link to new article', () => {
+    wrapper.getByText(/New article/, { 
+      selector: `a[href="${router.resolve({ name: 'new article' }).path}"]` 
+    })
+  })
 });

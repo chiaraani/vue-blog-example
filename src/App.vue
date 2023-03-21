@@ -5,15 +5,14 @@ import TheHeader from "@/components/layout/TheHeader.vue";
 
 <template>
   <TheHeader />
-  <main>
-    <RouterView v-slot="{ Component, route }">
-      <Transition name="fade-slide-left" mode="out-in">
-        <div :key="route.path">
-          <component :is="Component" />
-        </div>
-      </Transition>
-    </RouterView>
-  </main>
+  <RouterView v-slot="{ Component, route }">
+    <Transition name="fade-slide-left" mode="out-in">
+      <main :key="route.path">
+        <component :is="Component" />
+      </main>
+    </Transition>
+  </RouterView>
+  <div id="floating"></div>
 </template>
 
 <style>
