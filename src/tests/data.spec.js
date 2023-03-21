@@ -1,8 +1,13 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 
 import { findAll, findRecord, createRecord } from "@/data";
-import { articles, article, newArticle, expectedNewArticle } from "@/tests/fixtures/articles";
-import { mockFetchResponse } from '@/tests/test-support'
+import {
+  articles,
+  article,
+  newArticle,
+  expectedNewArticle,
+} from "@/tests/fixtures/articles";
+import { mockFetchResponse } from "@/tests/test-support";
 
 mockFetchResponse("articles.json", articles);
 
@@ -19,21 +24,23 @@ describe("findRecord", () => {
 
   it("throws 404 error if article is not found", async () => {
     expect(
-      await findRecord("articles", "Not a an ID")
-      .catch(error => error.message === "404")
+      await findRecord("articles", "Not a an ID").catch(
+        (error) => error.message === "404"
+      )
     ).toBe(true);
   });
 });
 
-describe('createRecord', () => {
-  it('returns new article with generated slug and id', async () => {
-    expect(await createRecord('articles', newArticle)).toEqual(expectedNewArticle)
-  })
+describe("createRecord", () => {
+  it("returns new article with generated slug and id", async () => {
+    expect(await createRecord("articles", newArticle)).toEqual(
+      expectedNewArticle
+    );
+  });
 
-  it('adds article to list of all articles', async () => {
+  it("adds article to list of all articles", async () => {
     expect(
-      (await findAll('articles'))
-      .find(a => a.title === newArticle.title)
-    ).toEqual(expectedNewArticle)
-  })
-})
+      (await findAll("articles")).find((a) => a.title === newArticle.title)
+    ).toEqual(expectedNewArticle);
+  });
+});

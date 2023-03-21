@@ -8,10 +8,10 @@ describe("MetaTags", () => {
   const wrapper = render(Title, { slots: { default: "Hello" } });
 
   it("renders title of page", () => {
-    expect(document.title).toEqual("Hello - My site")
+    expect(document.title).toEqual("Hello - My site");
   });
   it("renders heading one", () => {
-    wrapper.getByText('Hello', { selector: 'h1' })
+    wrapper.getByText("Hello", { selector: "h1" });
   });
   it("changes title of page when it is called again", () => {
     render(Title, { slots: { default: "Bye" } });

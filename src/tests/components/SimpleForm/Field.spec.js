@@ -1,18 +1,20 @@
-import { describe, it, expect } from 'vitest'
-import { render } from '@testing-library/vue'
+import { describe, it, expect } from "vitest";
+import { render, fireEvent } from "@testing-library/vue";
 
-import SimpleField from '@/components/SimpleForm/Field.vue'
-import { fillIn } from '@/tests/test-support'
+import SimpleField from "@/components/SimpleForm/Field.vue";
 
-describe('SimpleField', () => {
-	const data = {}
-	const wrapper = render(SimpleField, {
-		props: { name: 'title', type: 'text', data }
-	})
+describe("SimpleField", () => {
+  it("is bound to data.title", async () => {
+    const props = { name: "title", type: "text" };
+    const wrapper = render(SimpleField, { props });
 
-	it('is bound to data.title', async () => {
-		const value = 'My article'
-		await fillIn(wrapper, 'Title', value)
-		expect(data.title).toEqual(value)
-	})
-})
+    const value = "My article";
+    await fireEvent.update(
+      wrapper.getByLabelText("Title", {
+        selector: `#${props.name}_field[name=${props.name}][required]`,
+      }),
+      value
+    );
+    expect(wrapper.emitted().update).toEqual([[value]]);
+  });
+});

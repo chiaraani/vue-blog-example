@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { render } from '@testing-library/vue'
+import { render } from "@testing-library/vue";
 
 import ArticleItem from "@/components/Articles/Item.vue";
 import { article } from "@/tests/fixtures/articles";
@@ -16,11 +16,10 @@ describe("ArticleItem", async () => {
   const wrapper = render(ArticleItem, {
     global: { plugins: [router] },
     props: { article },
-  })
-
+  });
 
   it("renders title", () => {
-    wrapper.getByText(article.title, { selector: 'h2 > a' })
+    wrapper.getByText(article.title, { selector: "h2 > a" });
   });
 
   it("renders summary", () => {

@@ -15,6 +15,6 @@ describe("ArticlesIndex", async () => {
   render(ArticlesIndex, { global: { plugins: [router] } });
 
   it("finds all articles and mounts collection of them", () => {
-    expect(ArticlesCollection).toHaveBeenMountedWith({ articles })
+    expect(ArticlesCollection).toHaveBeenMountedWith({ articles });
   });
 });

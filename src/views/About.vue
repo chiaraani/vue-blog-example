@@ -17,7 +17,7 @@ import Title from "@/components/layout/Title.vue";
     <p>
       <i>
         Check out the source code on
-        <a href="https://github.com/chiaraani/vue-blog-example"  target="_blank">
+        <a href="https://github.com/chiaraani/vue-blog-example" target="_blank">
           Github
         </a>
         .

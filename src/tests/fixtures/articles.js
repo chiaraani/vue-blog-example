@@ -18,10 +18,10 @@ export const article = articles[0];
 export const newArticle = {
   title: "How to show an alert modal in JavaScript?",
   body: "With browser built-in function `alert`.",
-}
+};
 
-export const expectedNewArticle = { 
-  ...newArticle, 
-  id: 3, 
-  slug: '3_how-to-show-an-alert-modal-in-javascript'
-}
+export const expectedNewArticle = {
+  ...newArticle,
+  id: 3,
+  slug: "3_how-to-show-an-alert-modal-in-javascript",
+};

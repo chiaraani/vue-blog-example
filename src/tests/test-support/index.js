@@ -1,5 +1,3 @@
-export { default as createTestRouter } from './createTestRouter'
-export { spyComponent } from './expectComponentToHaveBeenMounted'
-export { fillIn } from './forms'
-export { default as clickOn } from './clickOn'
-export { default as mockFetchResponse } from './mockFetchResponse'
+export { default as createTestRouter } from "./createTestRouter";
+export { spyComponent } from "./expectComponentToHaveBeenMounted";
+export { default as mockFetchResponse } from "./mockFetchResponse";

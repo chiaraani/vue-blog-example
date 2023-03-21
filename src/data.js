@@ -5,11 +5,11 @@ const fetchJSONFile = async (fileName) => {
   return data.json();
 };
 
-String.prototype.slugify = function() {
+String.prototype.slugify = function () {
   return this.toLowerCase()
-   .replace(/ /g, '-')
-   .replace(/[^\w-]+/g, '');
-}
+    .replace(/ /g, "-")
+    .replace(/[^\w-]+/g, "");
+};
 
 const memory = {};
 
@@ -26,19 +26,19 @@ export const findRecord = async (resource, slug) => {
 };
 
 export const createRecord = async (resource, data) => {
-  let id
-  const all = await findAll(resource)
+  let id;
+  const all = await findAll(resource);
   if (all.length > 0) {
-    const lastId = all[all.length - 1].id
-    id = lastId + 1
+    const lastId = all[all.length - 1].id;
+    id = lastId + 1;
   } else {
-    id = 1
+    id = 1;
   }
 
-  const slug = `${id}_${data.title.slugify()}`
-  
-  const newRecord = {id, slug, ...data}
-  all.push(newRecord)
+  const slug = `${id}_${data.title.slugify()}`;
 
-  return newRecord
-}
+  const newRecord = { id, slug, ...data };
+  all.push(newRecord);
+
+  return newRecord;
+};

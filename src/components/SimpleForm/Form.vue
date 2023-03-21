@@ -1,17 +1,23 @@
 <template>
-	<form @submit.prevent="$emit('submit', data)">
-		<SimpleField v-for="field in fields" v-bind="field" :data="data"/>
-		<button type="submit">{{ submitButton }}</button>
-		<RouterLink :to="{ name: 'home' }" class="red button">Cancel</RouterLink>
-	</form>
+  <form @submit.prevent="$emit('submit', data)">
+    <SimpleField
+      v-for="field in fields"
+      v-bind="field"
+      :default="data[field.name]"
+      :key="field.name"
+      @update="(value) => (data[field.name] = value)"
+    />
+    <button type="submit">{{ submitButton }}</button>
+    <RouterLink :to="{ name: 'home' }" class="red button">Cancel</RouterLink>
+  </form>
 </template>
 
 <script setup>
-	import { reactive } from 'vue'
-	import SimpleField from '@/components/SimpleForm/Field.vue'
+import { reactive } from "vue";
+import SimpleField from "@/components/SimpleForm/Field.vue";
 
-	const props = defineProps(['fields', 'default', 'submitButton'])
-	defineEmits(['submit'])
+const props = defineProps(["fields", "default", "submitButton"]);
+defineEmits(["submit"]);
 
-	const data = reactive({ ...props.default })
+const data = reactive({ ...props.default });
 </script>
