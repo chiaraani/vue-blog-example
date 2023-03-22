@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 
-import { findAll, findRecord, createRecord } from "@/data";
+import { findAll, findRecord, createRecord, destroyRecord } from "@/data";
 import {
   articles,
   article,
@@ -42,5 +42,12 @@ describe("createRecord", () => {
     expect(
       (await findAll("articles")).find((a) => a.title === newArticle.title)
     ).toEqual(expectedNewArticle);
+  });
+});
+
+describe("destroyRecord", () => {
+  it("detroys article", async () => {
+    await destroyRecord("articles", article.slug)
+    expect(await findAll("articles")).not.toContain(article)
   });
 });

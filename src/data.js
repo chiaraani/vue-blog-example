@@ -42,3 +42,10 @@ export const createRecord = async (resource, data) => {
 
   return newRecord;
 };
+
+export const destroyRecord = async (resource, slug) => {
+  const record = await findRecord(resource, slug)
+  const all = await memory[resource]
+  const index = all.indexOf(record)
+  all.splice(index, 1)
+}
