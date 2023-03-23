@@ -13,6 +13,7 @@ import TheHeader from "@/components/layout/TheHeader.vue";
     </Transition>
   </RouterView>
   <div id="floating"></div>
+  <div id="modals"></div>
 </template>
 
 <style>

@@ -18,7 +18,7 @@ const preview = computed(() => marked(data.body || ''))
           <label for="title_field">Title</label>
           <span class="required-help">*</span>
         </div>
-        <input type="text" id="title_field" v-model="data.title"  />
+        <input type="text" id="title_field" v-model="data.title" required />
       </div>
 
 
@@ -28,7 +28,7 @@ const preview = computed(() => marked(data.body || ''))
             <label for="body_field">Body</label>
             <span class="required-help">*</span>
           </div>
-          <textarea id="body_field" v-model="data.body" />
+          <textarea id="body_field" v-model="data.body" required />
         </div>
         <div>
           <p id="preview-label" class="label">Preview</p>

@@ -43,7 +43,7 @@ input, textarea {
 }
 
 textarea {
-	height: 3em;
+	height: 5em;
 }
 
 input:focus, textarea:focus {

@@ -22,8 +22,8 @@ describe("ArticleForm", () => {
   afterEach(() => wrapper.unmount())
 
   it("emits entered data", async () => {
-    await fireEvent.update(wrapper.getByLabelText("Title"), newArticle.title);
-    await fireEvent.update(wrapper.getByLabelText("Body"), newArticle.body);
+    await fireEvent.update(wrapper.getByLabelText("Title", { selector: '[required]'}), newArticle.title);
+    await fireEvent.update(wrapper.getByLabelText("Body", { selector: '[required]'}), newArticle.body);
     await fireEvent.click(wrapper.getByText("Save"));
 
     expect(wrapper.emitted().save).toEqual([[newArticle]]);
