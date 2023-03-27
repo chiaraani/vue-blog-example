@@ -1,11 +1,9 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render } from "@testing-library/vue";
 
-import ArticlesIndex from "@/components/Articles/Index.vue";
 import { articles } from "@/tests/fixtures/articles";
-vi.mock("@/data", async () => ({
-  findAll: vi.fn(async (resource) => resource == "articles" && articles),
-}));
+vi.doMock("@/db", async () => ({ default: { articles } }));
+import ArticlesIndex from "@/components/Articles/Index.vue";
 import { createTestRouter, spyComponent } from "@/tests/test-support";
 import ArticlesCollection from "@/components/Articles/Collection.vue";
 

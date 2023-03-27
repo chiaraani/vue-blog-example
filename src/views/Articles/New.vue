@@ -3,13 +3,13 @@ import { useRouter } from "vue-router";
 
 import Title from "@/components/layout/Title.vue";
 import ArticleForm from "@/components/Articles/Form.vue";
-import { createRecord } from "@/data";
+import db from "@/db";
 
 const router = useRouter();
 
-const saveHandler = async (data) => {
-  const article = await createRecord("articles", data);
-  router.push({ name: "article", params: { slug: article.slug } });
+const saveHandler = (data) => {
+  db.articles.push(data)
+  router.push({ name: "article", params: { id: db.articles.length - 1 } });
 };
 </script>
 

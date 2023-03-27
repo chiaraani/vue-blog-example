@@ -15,8 +15,8 @@ describe("ArticlesCollection", async () => {
   });
 
   it("displays a collection of articles", () => {
-    articles.forEach((article) =>
-      expect(ArticleItem).toHaveBeenMountedWith({ article })
+    articles.forEach((article, index) =>
+      expect(ArticleItem).toHaveBeenMountedWith({ article, id: index })
     );
   });
 });

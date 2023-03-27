@@ -7,9 +7,10 @@ defineProps(["articles"]);
 <template>
   <section class="responsive">
     <ArticleItem
-      v-for="article in articles"
-      :key="article.id"
+      v-for="(article, index) in articles"
+      :key="index"
       :article="article"
+      :id="index"
     />
   </section>
 </template>

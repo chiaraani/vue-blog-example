@@ -1,13 +1,11 @@
 import { describe, it, expect, vi } from "vitest";
 import { render } from "@testing-library/vue";
 
-import { newArticle, expectedNewArticle } from "@/tests/fixtures/articles";
+import { articles, newArticle } from "@/tests/fixtures/articles";
 import { createTestRouter } from "@/tests/test-support";
 
-vi.doMock("@/data", async () => ({
-  createRecord: vi.fn().mockResolvedValue(expectedNewArticle),
-}));
-import { createRecord } from "@/data";
+const db = { articles: [...articles] }
+vi.doMock("@/db", () => ({ default: db }))
 
 vi.doMock("@/components/Articles/Form.vue", async () => ({
   default: {
@@ -28,13 +26,13 @@ describe("NewArticleView", async () => {
   });
 
   it("creates an article", () => {
-    expect(createRecord).toHaveBeenCalledWith("articles", newArticle);
+    expect(db.articles).toContain(newArticle)
   });
 
   it("redirects to new article show", () => {
     expect(router.push).toHaveBeenCalledWith({
       name: "article",
-      params: { slug: expectedNewArticle.slug },
+      params: { id: 2 },
     });
   });
 });

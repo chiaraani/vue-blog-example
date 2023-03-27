@@ -7,19 +7,19 @@ vi.mock("@/helpers/summarize", async () => ({
   default: vi.fn(() => "*Emphasis*"),
 }));
 import summarize from "@/helpers/summarize";
-import { createTestRouter, spyComponent } from "@/tests/test-support";
-import { RouterLink } from "vue-router";
+import { createTestRouter } from "@/tests/test-support";
 
 describe("ArticleItem", async () => {
-  spyComponent(RouterLink);
   const router = await createTestRouter();
   const wrapper = render(ArticleItem, {
     global: { plugins: [router] },
-    props: { article },
+    props: { article, id: 1 },
   });
 
-  it("renders title", () => {
-    wrapper.getByText(article.title, { selector: "h2 > a" });
+  it("links title of article to article route", () => {
+    wrapper.getByText(article.title, { 
+      selector: `h2 > a[href="${router.resolve({ name: "article", params: { id: 1 } }).path}"]`
+    });
   });
 
   it("renders summary", () => {
@@ -30,11 +30,5 @@ describe("ArticleItem", async () => {
 
   it("renders summary in HTML", () => {
     expect(wrapper.html()).toContain("<em>Emphasis</em>");
-  });
-
-  it("is linked to article route", () => {
-    expect(RouterLink).toHaveBeenMountedWith({
-      to: { name: "article", params: { slug: article.slug } },
-    });
   });
 });

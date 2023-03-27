@@ -5,7 +5,7 @@ import { marked } from "marked";
 
 import summarize from "@/helpers/summarize";
 
-const props = defineProps(["article"]);
+const props = defineProps(["article", "id"]);
 
 const summary = computed(() => {
   return marked(summarize({ text: props.article.body, maxLength: 50 }));
@@ -15,7 +15,7 @@ const summary = computed(() => {
 <template>
   <article class="card">
     <h2>
-      <RouterLink :to="{ name: 'article', params: { slug: article.slug } }">{{
+      <RouterLink :to="{ name: 'article', params: { id } }">{{
         article.title
       }}</RouterLink>
     </h2>

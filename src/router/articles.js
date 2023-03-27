@@ -1,6 +1,6 @@
 export const articlesRoutes = [
   {
-    path: "/articles/:slug",
+    path: "/articles/:id",
     name: "article",
     component: () => import("@/views/Articles/Show.vue"),
   },
