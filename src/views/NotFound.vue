@@ -1,6 +1,6 @@
 <script setup>
-import Title from "@/components/layout/Title.vue";
-import { RouterLink } from "vue-router";
+import Title from "@/components/layout/Title.vue"
+import { RouterLink } from "vue-router"
 </script>
 
 <template>

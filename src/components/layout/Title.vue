@@ -1,5 +1,5 @@
 <script>
-const siteName = document.title;
+const siteName = document.title
 </script>
 
 <template>
@@ -7,10 +7,10 @@ const siteName = document.title;
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-const title = ref();
+import { ref, onMounted } from "vue"
+const title = ref()
 
 onMounted(() => {
-  document.title = `${title.value.textContent} - ${siteName}`;
-});
+  document.title = `${title.value.textContent} - ${siteName}`
+})
 </script>

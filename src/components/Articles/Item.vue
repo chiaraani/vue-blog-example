@@ -1,15 +1,15 @@
 <script setup>
-import { computed } from "vue";
-import { RouterLink } from "vue-router";
-import { marked } from "marked";
+import { computed } from "vue"
+import { RouterLink } from "vue-router"
+import { marked } from "marked"
 
-import summarize from "@/helpers/summarize";
+import summarize from "@/helpers/summarize"
 
-const props = defineProps(["article", "id"]);
+const props = defineProps(["article", "id"])
 
 const summary = computed(() => {
-  return marked(summarize({ text: props.article.body, maxLength: 50 }));
-});
+  return marked(summarize({ text: props.article.body, maxLength: 50 }))
+})
 </script>
 
 <template>

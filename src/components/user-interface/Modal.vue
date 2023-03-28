@@ -1,10 +1,10 @@
 <script setup>
-import { ref } from "vue";
+import { ref } from "vue"
 
-const show = ref(false);
-const open = () => (show.value = true);
-const close = () => (show.value = false);
-defineExpose({ open });
+const show = ref(false)
+const open = () => (show.value = true)
+const close = () => (show.value = false)
+defineExpose({ open })
 </script>
 
 <template>

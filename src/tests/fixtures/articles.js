@@ -11,11 +11,11 @@ export const articles = [
     title: "What are the main sections of vue files?",
     body: "Script, Template, and Style",
   },
-];
+]
 
-export const article = articles[0];
+export const article = articles[0]
 
 export const newArticle = {
   title: "How to show an alert modal in JavaScript?",
   body: "With browser built-in function `alert`.",
-};
+}

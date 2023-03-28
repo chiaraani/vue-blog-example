@@ -9,4 +9,4 @@ export default {
       body: "`Script`, `Template`, and `Style` are the main sections of vue files.\n\nFor example:\n```vue\n<script setup>\n\\\\ Your JS\n<\\script>\n\n<template>\n<!-- Your HTML -->\n</template>\n\n<style>\n\\* Your CSS *\\\n</style>\n```",
     },
   ],
-};
+}

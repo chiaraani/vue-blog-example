@@ -9,4 +9,4 @@ export const articlesRoutes = [
     name: "new article",
     component: () => import("@/views/Articles/New.vue"),
   },
-];
+]

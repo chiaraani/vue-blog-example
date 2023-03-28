@@ -1,13 +1,13 @@
 <script setup>
-import { reactive, computed } from "vue";
-import { marked } from "marked";
+import { reactive, computed } from "vue"
+import { marked } from "marked"
 
-const props = defineProps(["article"]);
-defineEmits(["save"]);
+const props = defineProps(["article"])
+defineEmits(["save"])
 
-const data = reactive(props.article || {});
+const data = reactive(props.article || {})
 
-const preview = computed(() => marked(data.body || ""));
+const preview = computed(() => marked(data.body || ""))
 </script>
 
 <template>

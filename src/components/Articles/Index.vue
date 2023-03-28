@@ -1,11 +1,11 @@
 <script setup>
-import { ref } from "vue";
-import { RouterLink } from "vue-router";
+import { ref } from "vue"
+import { RouterLink } from "vue-router"
 
-import db from "@/db";
-import ArticlesCollection from "./Collection.vue";
+import db from "@/db"
+import ArticlesCollection from "./Collection.vue"
 
-const articles = ref(db.articles);
+const articles = ref(db.articles)
 </script>
 
 <template>

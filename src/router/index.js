@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from "vue-router";
-import { articlesRoutes } from "./articles";
+import { createRouter, createWebHistory } from "vue-router"
+import { articlesRoutes } from "./articles"
 
 export const routes = [
   {
@@ -18,13 +18,13 @@ export const routes = [
     name: "not found",
     component: () => import("../views/NotFound.vue"),
   },
-];
+]
 
 /* c8 ignore start */
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-});
+})
 
-export default router;
+export default router
 /* c8 ignore stop */
