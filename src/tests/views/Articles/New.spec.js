@@ -4,8 +4,8 @@ import { render } from "@testing-library/vue";
 import { articles, newArticle } from "@/tests/fixtures/articles";
 import { createTestRouter } from "@/tests/test-support";
 
-const db = { articles: [...articles] }
-vi.doMock("@/db", () => ({ default: db }))
+const db = { articles: [...articles] };
+vi.doMock("@/db", () => ({ default: db }));
 
 vi.doMock("@/components/Articles/Form.vue", async () => ({
   default: {
@@ -26,7 +26,7 @@ describe("NewArticleView", async () => {
   });
 
   it("creates an article", () => {
-    expect(db.articles).toContain(newArticle)
+    expect(db.articles).toContain(newArticle);
   });
 
   it("redirects to new article show", () => {

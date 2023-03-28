@@ -9,9 +9,9 @@ spyComponent(ArticleItem);
 
 import ArticlesCollection from "@/components/Articles/Collection.vue";
 
-describe("ArticlesCollection",() => {
-  let router
-  beforeAll(async () => router = await createTestRouter())
+describe("ArticlesCollection", () => {
+  let router;
+  beforeAll(async () => (router = await createTestRouter()));
 
   it("displays a collection of articles", () => {
     render(ArticlesCollection, {
@@ -24,12 +24,12 @@ describe("ArticlesCollection",() => {
     );
   });
 
-  it("displays a message \"there are no articles\" when given array is empty", () => {
+  it('displays a message "there are no articles" when given array is empty', () => {
     const wrapper = render(ArticlesCollection, {
       global: { plugins: [router] },
       props: { articles: [] },
     });
 
-    wrapper.getByText('There are no articles.')
+    wrapper.getByText("There are no articles.");
   });
 });

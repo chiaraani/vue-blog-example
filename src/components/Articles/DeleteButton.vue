@@ -1,5 +1,5 @@
 <template>
-	<Teleport to="#floating">
+  <Teleport to="#floating">
     <button class="red button" @click="modal.open()">✖ Delete</button>
   </Teleport>
 
@@ -10,18 +10,18 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
-import db from '@/db'
-import Modal from '@/components/user-interface/Modal.vue'
+import db from "@/db";
+import Modal from "@/components/user-interface/Modal.vue";
 
-const props = defineProps(['id'])
-const router = useRouter()
-const modal = ref()
+const props = defineProps(["id"]);
+const router = useRouter();
+const modal = ref();
 
 const deleteArticle = () => {
-  db.articles.splice(props.id, 1)
-  router.push({ name: 'home' })
-}
+  db.articles.splice(props.id, 1);
+  router.push({ name: "home" });
+};
 </script>

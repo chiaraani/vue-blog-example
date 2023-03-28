@@ -17,8 +17,10 @@ describe("ArticleItem", async () => {
   });
 
   it("links title of article to article route", () => {
-    wrapper.getByText(article.title, { 
-      selector: `h2 > a[href="${router.resolve({ name: "article", params: { id: 1 } }).path}"]`
+    wrapper.getByText(article.title, {
+      selector: `h2 > a[href="${
+        router.resolve({ name: "article", params: { id: 1 } }).path
+      }"]`,
     });
   });
 

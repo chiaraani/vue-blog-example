@@ -8,7 +8,7 @@ import db from "@/db";
 const router = useRouter();
 
 const saveHandler = (data) => {
-  db.articles.push(data)
+  db.articles.push(data);
   router.push({ name: "article", params: { id: db.articles.length - 1 } });
 };
 </script>

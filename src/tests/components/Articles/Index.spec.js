@@ -13,20 +13,20 @@ let router;
 let wrapper;
 
 beforeEach(async () => {
-  document.body.innerHTML = "<div id='floating'></div>"
+  document.body.innerHTML = "<div id='floating'></div>";
   router = await createTestRouter();
   wrapper = render(ArticlesIndex, { global: { plugins: [router] } });
-})
-afterEach(() => document.body.innerHTML = '')
+});
+afterEach(() => (document.body.innerHTML = ""));
 
 describe("ArticlesIndex", () => {
   it("finds all articles and mounts collection of them", () => {
     expect(ArticlesCollection).toHaveBeenSetupWith({ articles });
   });
 
-  it('renders link to new article', () => {
-    wrapper.getByText(/New article/, { 
-      selector: `a[href="${router.resolve({ name: 'new article' }).path}"]` 
-    })
-  })
+  it("renders link to new article", () => {
+    wrapper.getByText(/New article/, {
+      selector: `a[href="${router.resolve({ name: "new article" }).path}"]`,
+    });
+  });
 });

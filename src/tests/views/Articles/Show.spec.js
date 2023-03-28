@@ -2,19 +2,20 @@ import { describe, it, expect, vi, beforeAll, afterAll } from "vitest";
 import { mount } from "@vue/test-utils";
 
 import { article } from "@/tests/fixtures/articles";
-vi.doMock("@/db", () => ({ default: { articles: [article]  } }));
+vi.doMock("@/db", () => ({ default: { articles: [article] } }));
 
 import ArticleView from "@/views/Articles/Show.vue";
 import { createTestRouter, spyComponent } from "@/tests/test-support";
 import Title from "@/components/layout/Title.vue";
 
-import DeleteButton from '@/components/Articles/DeleteButton.vue'
-spyComponent(DeleteButton)
+import DeleteButton from "@/components/Articles/DeleteButton.vue";
+spyComponent(DeleteButton);
 
 describe("ArticleView", () => {
-  let router, wrapper
+  let router, wrapper;
   beforeAll(async () => {
-    document.body.innerHTML = "<div id='floating'></div><div id='modals'></div>"
+    document.body.innerHTML =
+      "<div id='floating'></div><div id='modals'></div>";
     router = await createTestRouter({
       name: "article",
       params: { id: 0 },
@@ -22,8 +23,8 @@ describe("ArticleView", () => {
     wrapper = mount(ArticleView, {
       global: { plugins: [router] },
     });
-  })
-  afterAll(() => document.body.innerHTML = "")
+  });
+  afterAll(() => (document.body.innerHTML = ""));
 
   it("renders title of article", () => {
     expect(wrapper.findComponent(Title).text()).toEqual(article.title);
@@ -36,6 +37,6 @@ describe("ArticleView", () => {
   });
 
   it("renders delete button", () => {
-    expect(DeleteButton).toHaveBeenSetupWith({ id: "0" })
-  })
+    expect(DeleteButton).toHaveBeenSetupWith({ id: "0" });
+  });
 });

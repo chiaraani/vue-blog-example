@@ -1,17 +1,17 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
-const show = ref(false)
-const open = () => show.value = true
-const close = () => show.value = false
-defineExpose({ open })
+const show = ref(false);
+const open = () => (show.value = true);
+const close = () => (show.value = false);
+defineExpose({ open });
 </script>
 
 <template>
-	<Teleport v-if="show" to="#modals">
+  <Teleport v-if="show" to="#modals">
     <div class="modal-shadow" @click.self="close">
       <div class="card">
-      	<slot />
+        <slot />
         <button class="red button" @click="close">Cancel</button>
       </div>
     </div>

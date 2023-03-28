@@ -15,6 +15,11 @@ defineProps(["articles"]);
   </section>
   <template v-else>
     <p>There are no articles.</p>
-    <p><i>Click on "New article" button at the right bottom corner to create one.</i></p>
+    <p>
+      <i
+        >Click on "New article" button at the right bottom corner to create
+        one.</i
+      >
+    </p>
   </template>
 </template>
