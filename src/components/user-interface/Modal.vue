@@ -4,12 +4,12 @@ import { ref } from 'vue'
 const show = ref(false)
 const open = () => show.value = true
 const close = () => show.value = false
-defineExpose({open})
+defineExpose({ open })
 </script>
 
 <template>
 	<Teleport v-if="show" to="#modals">
-    <div class="modal-shadow">
+    <div class="modal-shadow" @click.self="close">
       <div class="card">
       	<slot />
         <button class="red button" @click="close">Cancel</button>
