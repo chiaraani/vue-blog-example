@@ -1,2 +1,2 @@
 export { default as createTestRouter } from "./createTestRouter";
-export { spyComponent } from "./expectComponentToHaveBeenMounted";
+export { spyComponent } from "./expectComponentToHaveBeenSetup";

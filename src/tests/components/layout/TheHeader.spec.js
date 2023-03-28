@@ -13,6 +13,6 @@ describe("TheHeader", async () => {
 
   links.forEach((link) => {
     it(`renders link to ${JSON.stringify(link)}`, () =>
-      expect(RouterLink).toHaveBeenMountedWith({ to: link }));
+      expect(RouterLink).toHaveBeenSetupWith({ to: link }));
   });
 });

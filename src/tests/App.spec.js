@@ -15,5 +15,5 @@ describe("App", async () => {
     },
   });
 
-  it("mounts TheHeader", () => expect(TheHeader).toHaveBeenMounted());
+  it("mounts TheHeader", () => expect(TheHeader).toHaveBeenSetup());
 });

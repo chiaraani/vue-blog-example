@@ -2,34 +2,26 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render } from "@testing-library/vue";
 
 import { articles } from "@/tests/fixtures/articles";
-vi.doMock("@/db", async () => ({ default: { articles } }));
+vi.doMock("@/db", () => ({ default: { articles } }));
 import ArticlesIndex from "@/components/Articles/Index.vue";
 import { createTestRouter, spyComponent } from "@/tests/test-support";
+
 import ArticlesCollection from "@/components/Articles/Collection.vue";
+spyComponent(ArticlesCollection);
 
 let router;
 let wrapper;
 
 beforeEach(async () => {
-  // create teleport target
-  const el = document.createElement('div')
-  el.id = 'floating'
-  document.body.appendChild(el)
-
-
-  spyComponent(ArticlesCollection);
+  document.body.innerHTML = "<div id='floating'></div>"
   router = await createTestRouter();
   wrapper = render(ArticlesIndex, { global: { plugins: [router] } });
 })
-
-afterEach(() => {
-  // clean up
-  document.body.outerHTML = ''
-})
+afterEach(() => document.body.innerHTML = '')
 
 describe("ArticlesIndex", () => {
   it("finds all articles and mounts collection of them", () => {
-    expect(ArticlesCollection).toHaveBeenMountedWith({ articles });
+    expect(ArticlesCollection).toHaveBeenSetupWith({ articles });
   });
 
   it('renders link to new article', () => {

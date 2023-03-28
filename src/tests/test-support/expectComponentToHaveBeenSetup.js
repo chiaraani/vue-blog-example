@@ -4,7 +4,7 @@ export const spyComponent = (...components) =>
   components.forEach((component) => vi.spyOn(component, "setup"));
 
 expect.extend({
-  toHaveBeenMountedWith(component, props) {
+  toHaveBeenSetupWith(component, props) {
     return {
       pass: expect(component.setup).toHaveBeenCalledWith(
         expect.objectContaining(props),
@@ -12,7 +12,7 @@ expect.extend({
       ),
     };
   },
-  toHaveBeenMounted(component) {
+  toHaveBeenSetup(component) {
     return {
       pass: expect(component.setup).toHaveBeenCalled(),
     };
