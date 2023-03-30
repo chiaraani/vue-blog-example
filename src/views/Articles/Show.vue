@@ -1,5 +1,5 @@
 <script setup>
-import { useRoute } from 'vue-router'
+import { useRoute, RouterLink } from 'vue-router'
 import { ref, computed } from 'vue'
 import { marked } from 'marked'
 
@@ -20,6 +20,11 @@ const bodyHTML = computed(() => marked(article.value.body))
     <div v-html="bodyHTML"></div>
   </article>
   <DeleteButton :id="id" />
+  <Teleport to="#floating">
+    <RouterLink :to="{ name: 'edit article', params: { id } }" class="button">
+      <b>✎</b> Edit
+    </RouterLink>
+  </Teleport>
 </template>
 
 <style>

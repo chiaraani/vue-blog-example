@@ -40,7 +40,7 @@ const preview = computed(() => marked(data.body || ''))
       </div>
 
       <button type="submit">Save</button>
-      <RouterLink :to="{ name: 'home' }" class="red button">Cancel</RouterLink>
+      <a @click="$router.go(-1)" class="red button">Cancel</a>
     </form>
   </article>
 </template>

@@ -35,10 +35,10 @@ describe('ArticleForm', () => {
     expect(wrapper.emitted().save).toEqual([[newArticle]])
   })
 
-  it('renders cancel button', () => {
-    wrapper.getByText('Cancel', {
-      selector: `a[href="${router.resolve({ name: 'home' }).path}"]`,
-    })
+  it('renders cancel button', async () => {
+    router.go = vi.fn()
+    await fireEvent.click(wrapper.getByText('Cancel'))
+    expect(router.go).toHaveBeenCalledWith(-1)
   })
 
   it('renders preview', async () => {

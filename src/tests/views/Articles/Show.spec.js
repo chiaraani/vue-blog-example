@@ -1,12 +1,11 @@
 import { describe, it, expect, vi, beforeAll, afterAll } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { render } from '@testing-library/vue'
 
 import { article } from '@/tests/fixtures/articles'
 vi.doMock('@/db', () => ({ default: { articles: [article] } }))
 
 import ArticleView from '@/views/Articles/Show.vue'
 import { createTestRouter, spyComponent } from '@/tests/test-support'
-import Title from '@/components/layout/Title.vue'
 
 import DeleteButton from '@/components/Articles/DeleteButton.vue'
 spyComponent(DeleteButton)
@@ -19,14 +18,14 @@ describe('ArticleView', () => {
       name: 'article',
       params: { id: 0 },
     })
-    wrapper = mount(ArticleView, {
+    wrapper = render(ArticleView, {
       global: { plugins: [router] },
     })
   })
   afterAll(() => (document.body.innerHTML = ''))
 
   it('renders title of article', () => {
-    expect(wrapper.findComponent(Title).text()).toEqual(article.title)
+    expect(document.title).toContain(article.title)
   })
 
   it('renders body of article', () => {
@@ -37,5 +36,16 @@ describe('ArticleView', () => {
 
   it('renders delete button', () => {
     expect(DeleteButton).toHaveBeenSetupWith({ id: '0' })
+  })
+
+  it('renders edit button', () => {
+    wrapper.getByText(/Edit/, {
+      selector: `a[href='${
+        router.resolve({
+          name: 'edit article',
+          params: { id: '0' },
+        }).path
+      }']`,
+    })
   })
 })
