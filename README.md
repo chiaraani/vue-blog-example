@@ -2,7 +2,8 @@
 
 Visit on https://vue-blog-example-chiaraani.onrender.com
 
-[vue blog example.webm](https://user-images.githubusercontent.com/13300465/222526860-d369c87e-1de9-465e-a8e6-4b0e560a3d88.webm)
+[vue blog example.webm](https://user-images.githubusercontent.com/13300465/228825705-5e8a262f-6acc-44db-97fc-c16731fc5df4.webm)
+
 
 ## Description
 
