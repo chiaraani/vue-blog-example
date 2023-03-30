@@ -1,5 +1,5 @@
 <script setup>
-import Title from "@/components/layout/Title.vue"
+import Title from '@/components/layout/Title.vue'
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup>
-import ArticleItem from "./Item.vue"
+import ArticleItem from './Item.vue'
 
-defineProps(["articles"])
+defineProps(['articles'])
 </script>
 
 <template>

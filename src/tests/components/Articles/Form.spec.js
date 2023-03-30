@@ -1,15 +1,15 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
-import { render, fireEvent } from "@testing-library/vue"
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
+import { render, fireEvent } from '@testing-library/vue'
 
-import ArticleForm from "@/components/Articles/Form.vue"
-import { newArticle } from "@/tests/fixtures/articles"
-import { createTestRouter } from "@/tests/test-support"
+import ArticleForm from '@/components/Articles/Form.vue'
+import { newArticle } from '@/tests/fixtures/articles'
+import { createTestRouter } from '@/tests/test-support'
 
-vi.mock("marked", async () => ({
-  marked: (value) => "marked" + value,
+vi.mock('marked', async () => ({
+  marked: (value) => 'marked' + value,
 }))
 
-describe("ArticleForm", () => {
+describe('ArticleForm', () => {
   let router, wrapper
 
   beforeEach(async () => {
@@ -21,28 +21,28 @@ describe("ArticleForm", () => {
 
   afterEach(() => wrapper.unmount())
 
-  it("emits entered data", async () => {
+  it('emits entered data', async () => {
     await fireEvent.update(
-      wrapper.getByLabelText("Title", { selector: "[required]" }),
+      wrapper.getByLabelText('Title', { selector: '[required]' }),
       newArticle.title
     )
     await fireEvent.update(
-      wrapper.getByLabelText("Body", { selector: "[required]" }),
+      wrapper.getByLabelText('Body', { selector: '[required]' }),
       newArticle.body
     )
-    await fireEvent.click(wrapper.getByText("Save"))
+    await fireEvent.click(wrapper.getByText('Save'))
 
     expect(wrapper.emitted().save).toEqual([[newArticle]])
   })
 
-  it("renders cancel button", () => {
-    wrapper.getByText("Cancel", {
-      selector: `a[href="${router.resolve({ name: "home" }).path}"]`,
+  it('renders cancel button', () => {
+    wrapper.getByText('Cancel', {
+      selector: `a[href="${router.resolve({ name: 'home' }).path}"]`,
     })
   })
 
-  it("renders preview", async () => {
-    await fireEvent.update(wrapper.getByLabelText("Body"), newArticle.body)
-    wrapper.getByText("marked" + newArticle.body)
+  it('renders preview', async () => {
+    await fireEvent.update(wrapper.getByLabelText('Body'), newArticle.body)
+    wrapper.getByText('marked' + newArticle.body)
   })
 })

@@ -1,11 +1,11 @@
 <script setup>
-import { useRoute } from "vue-router"
-import { ref, computed } from "vue"
-import { marked } from "marked"
+import { useRoute } from 'vue-router'
+import { ref, computed } from 'vue'
+import { marked } from 'marked'
 
-import Title from "@/components/layout/Title.vue"
-import db from "@/db"
-import DeleteButton from "@/components/Articles/DeleteButton.vue"
+import Title from '@/components/layout/Title.vue'
+import db from '@/db'
+import DeleteButton from '@/components/Articles/DeleteButton.vue'
 
 const route = useRoute()
 const id = route.params.id

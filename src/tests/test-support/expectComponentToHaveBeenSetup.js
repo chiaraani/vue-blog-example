@@ -1,7 +1,7 @@
-import { vi, expect } from "vitest"
+import { vi, expect } from 'vitest'
 
 export const spyComponent = (...components) =>
-  components.forEach((component) => vi.spyOn(component, "setup"))
+  components.forEach((component) => vi.spyOn(component, 'setup'))
 
 expect.extend({
   toHaveBeenSetupWith(component, props) {

@@ -10,18 +10,18 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
-import { useRouter } from "vue-router"
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
-import db from "@/db"
-import Modal from "@/components/user-interface/Modal.vue"
+import db from '@/db'
+import Modal from '@/components/user-interface/Modal.vue'
 
-const props = defineProps(["id"])
+const props = defineProps(['id'])
 const router = useRouter()
 const modal = ref()
 
 const deleteArticle = () => {
   db.articles.splice(props.id, 1)
-  router.push({ name: "home" })
+  router.push({ name: 'home' })
 }
 </script>

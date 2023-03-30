@@ -1,11 +1,11 @@
-import { describe, it, expect } from "vitest"
-import { mount } from "@vue/test-utils"
+import { describe, it, expect } from 'vitest'
+import { mount } from '@vue/test-utils'
 
-import App from "@/App.vue"
-import { createTestRouter, spyComponent } from "@/tests/test-support"
-import TheHeader from "@/components/layout/TheHeader.vue"
+import App from '@/App.vue'
+import { createTestRouter, spyComponent } from '@/tests/test-support'
+import TheHeader from '@/components/layout/TheHeader.vue'
 
-describe("App", async () => {
+describe('App', async () => {
   spyComponent(TheHeader)
   const router = await createTestRouter()
   mount(App, {
@@ -15,5 +15,5 @@ describe("App", async () => {
     },
   })
 
-  it("mounts TheHeader", () => expect(TheHeader).toHaveBeenSetup())
+  it('mounts TheHeader', () => expect(TheHeader).toHaveBeenSetup())
 })

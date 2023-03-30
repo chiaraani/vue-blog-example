@@ -1,22 +1,22 @@
-import { createRouter, createWebHistory } from "vue-router"
-import { articlesRoutes } from "./articles"
+import { createRouter, createWebHistory } from 'vue-router'
+import { articlesRoutes } from './articles'
 
 export const routes = [
   {
-    path: "/",
-    name: "home",
-    component: () => import("../views/Home.vue"),
+    path: '/',
+    name: 'home',
+    component: () => import('../views/Home.vue'),
   },
   {
-    path: "/about",
-    name: "about",
-    component: () => import("../views/About.vue"),
+    path: '/about',
+    name: 'about',
+    component: () => import('../views/About.vue'),
   },
   ...articlesRoutes,
   {
-    path: "/:pathMatch(.*)*",
-    name: "not found",
-    component: () => import("../views/NotFound.vue"),
+    path: '/:pathMatch(.*)*',
+    name: 'not found',
+    component: () => import('../views/NotFound.vue'),
   },
 ]
 

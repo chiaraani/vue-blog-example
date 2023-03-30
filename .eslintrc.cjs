@@ -1,24 +1,24 @@
 /* eslint-env node */
-require("@rushstack/eslint-patch/modern-module-resolution")
+require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
   root: true,
   extends: [
-    "plugin:vue/vue3-essential",
-    "eslint:recommended",
-    "@vue/eslint-config-prettier",
+    'plugin:vue/vue3-essential',
+    'eslint:recommended',
+    '@vue/eslint-config-prettier',
   ],
   parserOptions: {
-    ecmaVersion: "latest",
+    ecmaVersion: 'latest',
   },
   globals: {
-    global: "writable",
+    global: 'writable',
   },
   rules: {
-    "vue/multi-word-component-names": [
-      "off",
+    'vue/multi-word-component-names': [
+      'off',
       {
-        ignores: ["components/*/**", "views/**"],
+        ignores: ['components/*/**', 'views/**'],
       },
     ],
   },

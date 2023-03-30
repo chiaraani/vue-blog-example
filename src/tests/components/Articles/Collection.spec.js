@@ -1,19 +1,19 @@
-import { describe, it, expect, beforeAll } from "vitest"
-import { render } from "@testing-library/vue"
+import { describe, it, expect, beforeAll } from 'vitest'
+import { render } from '@testing-library/vue'
 
-import { articles } from "@/tests/fixtures/articles"
-import { createTestRouter, spyComponent } from "@/tests/test-support"
+import { articles } from '@/tests/fixtures/articles'
+import { createTestRouter, spyComponent } from '@/tests/test-support'
 
-import ArticleItem from "@/components/Articles/Item.vue"
+import ArticleItem from '@/components/Articles/Item.vue'
 spyComponent(ArticleItem)
 
-import ArticlesCollection from "@/components/Articles/Collection.vue"
+import ArticlesCollection from '@/components/Articles/Collection.vue'
 
-describe("ArticlesCollection", () => {
+describe('ArticlesCollection', () => {
   let router
   beforeAll(async () => (router = await createTestRouter()))
 
-  it("displays a collection of articles", () => {
+  it('displays a collection of articles', () => {
     render(ArticlesCollection, {
       global: { plugins: [router] },
       props: { articles },
@@ -30,6 +30,6 @@ describe("ArticlesCollection", () => {
       props: { articles: [] },
     })
 
-    wrapper.getByText("There are no articles.")
+    wrapper.getByText('There are no articles.')
   })
 })
