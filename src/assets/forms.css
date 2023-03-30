@@ -1,4 +1,5 @@
-button, .button {
+button,
+.button {
 	background-color: #36009d;
 	transition: all 0.5s;
 	color: white;
@@ -12,7 +13,8 @@ button, .button {
 	margin: 5px;
 }
 
-button:hover, .button:hover {
+button:hover,
+.button:hover {
 	background-color: #5800ff;
 	color: white;
 }
@@ -25,7 +27,8 @@ button:hover, .button:hover {
 	background-color: #ff3e3e;
 }
 
-label, .label {
+label,
+.label {
 	color: grey;
 	font-weight: bold;
 	font-family: sans-serif;
@@ -33,7 +36,8 @@ label, .label {
 	text-align: left;
 }
 
-input, textarea {
+input,
+textarea {
 	border-radius: 10px;
 	padding: 5px;
 	border: 1px solid #777;
@@ -46,7 +50,8 @@ textarea {
 	height: 5em;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
 	outline: none;
 	border-width: 2px;
 	border-color: #36009d;
@@ -60,8 +65,8 @@ input:focus, textarea:focus {
 	margin: 20px 0;
 }
 
-.field.large {		
-  margin-bottom: 30px;	
+.field.large {
+	margin-bottom: 30px;
 }
 
 .field.large input {

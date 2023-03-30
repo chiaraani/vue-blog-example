@@ -14,7 +14,7 @@ main {
   main {
     max-width: 900px;
   }
-} 
+}
 
 a {
   color: #36009d;
@@ -42,18 +42,23 @@ a:hover {
   font-size: 130%;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   border-bottom: 1px solid #0002;
 }
 
-pre, code {
+pre,
+code {
   background-color: #082c58;
   color: #d9ff46;
+  word-wrap: ;
 }
 
 pre {
   padding: 10px;
   border-radius: 5px;
+  white-space: pre-wrap;
 }
 
 code {
@@ -71,11 +76,10 @@ code {
   box-shadow: 3px 3px 15px #0005;
 }
 
-
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 700px) {
   .split-2 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, calc(50% - 10px));
     gap: 20px;
   }
 }
